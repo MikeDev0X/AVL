@@ -33,6 +33,11 @@ Arbol::~Arbol(){}//destructor
 Nodo * Arbol::getRaiz(){//obtener la raíz
   return raiz;
 }
+
+void  Arbol::setRaiz(Nodo* _raiz){//obtener la raíz
+  raiz = _raiz;
+}
+
 Nodo* Arbol::insertaAVL(Nodo* nodo, bool BO ,int num){//insertar un dato en orden
   if(nodo!=NULL){//1 
     if( num < nodo->getDato()){//1.1
@@ -59,7 +64,7 @@ Nodo* Arbol::insertaAVL(Nodo* nodo, bool BO ,int num){//insertar un dato en orde
 
             if(nodo2->getFE() == -1){//1.1.1.C
               nodo->setFE(1);
-            }
+            } 
             else{
               nodo->setFE(0);//fin 1.1.1.C
             }
@@ -132,18 +137,27 @@ Nodo* Arbol::insertaAVL(Nodo* nodo, bool BO ,int num){//insertar un dato en orde
             
           }
 
+        }
 
       }
-
-    } else{//Fin 1.1
-      Nodo *nuevo;
-      nuevo->setDato(num);
+      else{//Fin 1.1
+      Nodo *nuevo = new Nodo(num);
       BO = true;
       return nuevo;
-    }
-  }//Fin 1
-  return NULL;////////////////////////////////////////////
+      }
+    }/*
+    else{
+      Nodo* cat = new Nodo(num);
+      BO = true;
+      raiz = cat;
+      return cat;
+
+    }*/
+    
 }
+  //Fin 1
+  ////////////////////////////////////////////
+
 
 void Arbol::preorder(Nodo* aux){//imprimir datos de los nodos
   if(aux != NULL){

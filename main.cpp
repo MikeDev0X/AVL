@@ -6,8 +6,10 @@ using namespace std;
 
 int main() {
   Arbol a1;
-  Nodo *nodo;
-  a1.insertaAVL(nodo,false,2);
-  
+  //a1.setRaiz(a1.insertaAVL(a1.getRaiz(),false,5));
+  a1.insertaAVL(a1.getRaiz(),false,5);
+  //a1.insertaAVL(a1.getRaiz(),false,7);
+  //a1.insertaAVL(a1.getRaiz(),false,4);
+  a1.preorder(a1.getRaiz());
 
 }
